@@ -36,27 +36,66 @@
 
     <script>
 
+        // Données
+
+        var monNom ="Soudant";
+        var monPrenom ="Raphael";
+        var monTel ="06.06.06.06.06"
+
+        var monPote1Nom ="Ullmann";
+        var monPote1Prenom ="Yanis";
+        var monPote1Tel ="06.06.06.06.07"
+
+        var monPote2Nom ="Claverie";
+        var monPote2Prenom ="Elouan";
+        var monPote2Tel ="06.06.06.06.08"
+     
+        var monPote3Nom ="Perroni";
+        var monPote3Prenom ="Camille";
+        var monPote3Tel ="06.06.06.06.09"
+
+        var monPote4Nom ="AlainGuillaume";
+        var monPote4Prenom ="Thomas";
+        var monPote4Tel ="06.06.06.06.10"
+
+        var monPote5Nom ="Dupin";
+        var monPote5Prenom ="Martin";
+        var monPote5Tel ="06.06.06.06.11"
+
         // Domicile
-        var infoposLat = "47.301906";
-        var infoposLon = "-1.555031";
+        var infoposDomicileNom ="Domicile"
+        var infoposDomicileLat = "47.301906";
+        var infoposDomicileLon = "-1.555031";
+
+
+        // Travail
+        var infoposTravailNom ="Travail"
+        var infoposTravailLat = "47.224553";
+        var infoposTravailLon = "-1.574735";
+
+        // Position courrante
+        var infoposCourranteNom ="I am here !"
+        var infoposCourranteLat = "47.301906";
+        var infoposCourranteLon = "1.555031";
+
+         // Position ralliement
+        var infoposRalliementInfo ="Join here !"
+        var infoposRalliementLat = "";
+        var infoposRalliementLon = "";       
 
         // id Map
         var id ="";
 
-        function successCallback(position) {
-        };
-
-
         function afficherPosCallback(position) {
             var infopos = "Position déterminée :\n";
-            var infoposLat = position.coords.latitude;
-            var infoposLon = position.coords.longitude;
+            var infoposCourranteLat = position.coords.latitude;
+            var infoposCourranteLon = position.coords.longitude;
 
-            infopos += "Latitude : " + position.coords.latitude + "\n";
-            infopos += "Longitude: " + position.coords.longitude + "\n";
-            document.getElementById("infoposition").innerHTML = infopos;
+         
+         //   infopos += "Latitude : " + position.coords.latitude + "\n";
+         //   infopos += " / Longitude: " + position.coords.longitude + "\n";
+         //   document.getElementById("infoposition").innerHTML = infopos;
 
-            afficherMarker(infoposLat,infoposLon);
         };
 
         function errorCallback(error) {
@@ -75,7 +114,7 @@
 
         function activerGeolocalisation(){
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+                navigator.geolocation.getCurrentPosition(afficherPosCallback, errorCallback, {
                             enableHighAccuracy: true,
                             timeout: 5000,
                             maximumAge: 60000
@@ -93,6 +132,23 @@
                         });
         }
 
+        function joindrePosition(nomUtilisateur) {
+                        navigator.geolocation.getCurrentPosition(joindrePosCallback, errorCallback, {
+                            enableHighAccuracy: true,
+                            timeout: 5000,
+                            maximumAge: 60000
+                        });
+                        if (infoposRalliementLat,infoposRalliementLon) {
+                            afficherMarker(infoposRalliementLat,infoposRalliementLon,nomUtilisateur);
+                        }
+                      
+        }
+
+        function joindrePosCallback(position) {
+            infoposRalliementLat = position.coords.latitude;
+            infoposRalliementLon = position.coords.longitude;
+        };
+
         function watchPosition(){
             id = navigator.geolocation.watchPosition(afficherPosCallback, errorCallback, {
                             enableHighAccuracy: true,
@@ -108,9 +164,9 @@
                        
         }
 
-        function afficherMarker(lat, lon) {
+        function afficherMarker(lat, lon, Nom) {
             L.marker([lat, lon]).addTo(mymap)
-            .bindPopup('I am Here !')
+            .bindPopup(Nom)
             .openPopup();
             mymap.setView([lat, lon], 13);
         }
@@ -125,66 +181,97 @@
     <script>
          activerGeolocalisation();
     </script>
-    <div class="row show-grid">
-        <div class="col-4"> Moi
 
+    <div class="row show-grid">
+        <div class="col-2">
             <img src="img/avatar01.jpg" alt="" />
-
         </div>
-        <div class="col-8">
-            <p>Nom</p>
-            <p>Prénom</p>
-            <p>Télephone</p>
+        <div class="col-4">
+                <div ip="Nom"> Nom : <script> document.write(monNom) </script> </div> 
+                <div ip="Prenom"> Prénom : <script> document.write(monPrenom) </script>  </div> 
+                <div ip="Tel"> Tél : <script> document.write(monTel) </script> </div> 
         </div>
+        <div class="col-3">
+                <div ip="maPosLat">lat : <script> document.write(infoposCourranteLat) </script> </div> 
+                <div ip="maPostLon">lon : <script> document.write(infoposCourranteLon) </script>  </div> 
+ 
+        </div>
+        <div class="col-3">
+                <button type="button" class="btn btn-primary" onclick="javascript:watchPosition()">Activation</button>
+                <button type="button" class="btn btn-primary" onclick="javascript:clearRoute()">Clear</button>
+         </div>
     </div>
+
     <div class="row show-grid">
-        <div class="col-12 col-sm-3">Nom 1
+        <div class="col-2 col-sm-3">
             <img src="img/avatar01.jpg" alt="Nom 1" />
         </div>
-        <div class="col-12 col-sm-3">Nom 2
-
-            <img src="img/avatar02.jpg" alt="Nom 2" />
-
+        <div class="col-4">
+                <div ip="Nom"> Nom : <script> document.write(monPote1Nom) </script> </div> 
+                <div ip="Prenom"> Prénom : <script> document.write(monPote1Prenom) </script>  </div> 
+                <div ip="Tel"> Tél : <script> document.write(monPote1Tel) </script> </div> 
         </div>
-        <div class="col-12 col-sm-3">Nom 3
-
-            <img src="img/avatar01.jpg" alt="Nom 3" />
-
+        <div class="col-6 col-sm-3">
+                <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote1Nom)">Rallier</button>
         </div>
-        <div class="col-12 col-sm-3">Nom 4
-            <img src="img/avatar02.jpg" alt="Nom 4" />
-        </div>
-
     </div>
     <div class="row show-grid">
+            <div class="col-4 col-sm-3">
+                <img src="img/avatar02.jpg" alt="Nom 2" />
+             </div>
 
-        <div class="col-12 col-sm-6"> Tag  / Join
-            <div id="infoposition"></div>
-            <button type="button" class="btn btn-primary" onclick="javascript:afficherPosition()">TAG</button>
-            <button type="button" class="btn btn-primary">JOIN</button>
-        </div>
-
-    </div>
-
-    <div class="row show-grid">
-
-            <div class="col-12 col-sm-6"> Trace route
-                <div id="infoposition"></div>
-                <button type="button" class="btn btn-primary" onclick="javascript:watchPosition()">ON</button>
-                <!-- https://developer.mozilla.org/fr/docs/Web/API/Geolocation/watchPosition -->
-                <button type="button" class="btn btn-primary" onclick="javascript:clearRoute()">OFF</button>
-                <!-- https://developer.mozilla.org/fr/docs/Web/API/Geolocation/clearWatch -->
-
+             <div class="col-4">
+                    <div ip="Nom"> Nom : <script> document.write(monPote2Nom) </script> </div> 
+                    <div ip="Prenom"> Prénom : <script> document.write(monPote2Prenom) </script>  </div> 
+                    <div ip="Tel"> Tél : <script> document.write(monPote2Tel) </script> </div> 
             </div>
-    
+            <div class="col-4 col-sm-3">
+                    <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote2Nom)">Rallier</button>
+                </div>
+         
         </div>
 
+        <div class="row show-grid">
+                <div class="col-4 col-sm-3">
+                    <img src="img/avatar01.jpg" alt="Nom 3" />
+                </div>
+                <div class="col-4">
+                        <div ip="Nom"> Nom : <script> document.write(monPote3Nom) </script> </div> 
+                        <div ip="Prenom"> Prénom : <script> document.write(monPote3Prenom) </script>  </div> 
+                        <div ip="Tel"> Tél : <script> document.write(monPote3Tel) </script> </div> 
+                </div>
+                <div class="col-4 col-sm-3">
+                        <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote3Nom)">Rallier</button>
+                    </div>
+      
+            </div>
+
+            <div class="row show-grid">
+ 
+                    <div class="col-4 col-sm-3">
+                        <img src="img/avatar02.jpg" alt="Nom 4" />
+                    </div>
+                    <div class="col-4">
+                            <div ip="Nom"> Nom : <script> document.write(monPote4Nom) </script> </div> 
+                            <div ip="Prenom"> Prénom : <script> document.write(monPote4Prenom) </script>  </div> 
+                            <div ip="Tel"> Tél : <script> document.write(monPote4Tel) </script> </div> 
+                    </div>
+                    <div class="col-4 col-sm-3">
+                            <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote4Nom)">Rallier</button>
+                    </div>
+            
+                </div>
+
     <div class="row show-grid">
-        <div class="col-12 col-sm-8">Mon trajet
+        <div class="col-12 col-sm-8"> MAP
             <div id="mapid" style="width: 600px; height: 400px;"></div>
             <script>
-                var mymap = L.map('mapid').setView([infoposLat, infoposLon], 13)
 
+                 if (infoposDomicileLat, infoposDomicileLon) {
+                    var mymap = L.map('mapid').setView([infoposDomicileLat, infoposDomicileLon], 13)
+                 }
+                 afficherMarker(infoposDomicileLat,infoposDomicileLon,infoposDomicileNom);
+                 afficherMarker(infoposTravailLat,infoposTravailLon,infoposTravailNom);
                 // mymap.locate({setView: true, maxZoom: 16});
 
                 L.tileLayer(
