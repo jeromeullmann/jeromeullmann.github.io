@@ -44,23 +44,33 @@
 
         var monPote1Nom ="Ullmann";
         var monPote1Prenom ="Yanis";
-        var monPote1Tel ="06.06.06.06.07"
+        var monPote1Tel ="06.06.06.06.07";
+        var infoposPote1Lat = "47.301906";
+        var infoposPote1Lon = "1.555031";
 
         var monPote2Nom ="Claverie";
         var monPote2Prenom ="Elouan";
         var monPote2Tel ="06.06.06.06.08"
+        var infoposPote2Lat = "47.301906";
+        var infoposPote2Lon = "1.555031";
      
         var monPote3Nom ="Perroni";
         var monPote3Prenom ="Camille";
-        var monPote3Tel ="06.06.06.06.09"
+        var monPote3Tel ="06.06.06.06.09";
+        var infoposPote3Lat = "47.301906";
+        var infoposPote3Lon = "1.555031";
 
         var monPote4Nom ="AlainGuillaume";
         var monPote4Prenom ="Thomas";
-        var monPote4Tel ="06.06.06.06.10"
+        var monPote4Tel ="06.06.06.06.10";
+        var infoposPote4Lat = "47.301906";
+        var infoposPote4Lon = "1.555031";
 
         var monPote5Nom ="Dupin";
         var monPote5Prenom ="Martin";
-        var monPote5Tel ="06.06.06.06.11"
+        var monPote5Tel ="06.06.06.06.11";
+        var infoposPote5Lat = "47.301906";
+        var infoposPote5Lon = "1.555031";
 
         // Domicile
         var infoposDomicileNom ="Domicile"
@@ -183,87 +193,110 @@
     </script>
 
     <div class="row show-grid">
-        <div class="col-2">
+        <div class="col-2 col-xs-3">
             <img src="img/avatar01.jpg" alt="" />
         </div>
-        <div class="col-4">
+        <div class="col-4 col-xs-3">
                 <div ip="Nom"> Nom : <script> document.write(monNom) </script> </div> 
                 <div ip="Prenom"> Prénom : <script> document.write(monPrenom) </script>  </div> 
                 <div ip="Tel"> Tél : <script> document.write(monTel) </script> </div> 
         </div>
-        <div class="col-3">
+        <div class="col-4 col-xs-3">
                 <div ip="maPosLat">lat : <script> document.write(infoposCourranteLat) </script> </div> 
                 <div ip="maPostLon">lon : <script> document.write(infoposCourranteLon) </script>  </div> 
  
         </div>
-        <div class="col-3">
+        <div class="col-4 col-xs-3">
                 <button type="button" class="btn btn-primary" onclick="javascript:watchPosition()">Activation</button>
                 <button type="button" class="btn btn-primary" onclick="javascript:clearRoute()">Clear</button>
          </div>
     </div>
 
     <div class="row show-grid">
-        <div class="col-2 col-sm-3">
+        <div class="col-2 col-xs-3">
             <img src="img/avatar01.jpg" alt="Nom 1" />
         </div>
-        <div class="col-4">
+        <div class="col-2 col-xs-3">
                 <div ip="Nom"> Nom : <script> document.write(monPote1Nom) </script> </div> 
                 <div ip="Prenom"> Prénom : <script> document.write(monPote1Prenom) </script>  </div> 
                 <div ip="Tel"> Tél : <script> document.write(monPote1Tel) </script> </div> 
         </div>
-        <div class="col-6 col-sm-3">
+        <div class="col-2 col-xs-3">
+            <div ip="maPosLat">lat : <script> document.write(infoposPote1Lat) </script> </div> 
+            <div ip="maPostLon">lon : <script> document.write(infoposPote1Lon) </script>  </div> 
+        </div>
+        <div class="col-2 col-xs-3">
                 <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote1Nom)">Rallier</button>
+                <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
         </div>
     </div>
     <div class="row show-grid">
-            <div class="col-4 col-sm-3">
+            <div class="col-2 col-xs-3">
                 <img src="img/avatar02.jpg" alt="Nom 2" />
              </div>
 
-             <div class="col-4">
+             <div class="col-2 col-xs-3">
                     <div ip="Nom"> Nom : <script> document.write(monPote2Nom) </script> </div> 
                     <div ip="Prenom"> Prénom : <script> document.write(monPote2Prenom) </script>  </div> 
                     <div ip="Tel"> Tél : <script> document.write(monPote2Tel) </script> </div> 
             </div>
-            <div class="col-4 col-sm-3">
+            <div class="col-2 col-xs-3">
+                <div ip="maPosLat">lat : <script> document.write(infoposPote2Lat) </script> </div> 
+                <div ip="maPostLon">lon : <script> document.write(infoposPote2Lon) </script>  </div> 
+            </div>
+    
+            <div class="col-2 col-xs-3">
                     <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote2Nom)">Rallier</button>
+                    <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
                 </div>
          
         </div>
 
         <div class="row show-grid">
-                <div class="col-4 col-sm-3">
+                <div class="col-2 col-xs-3">
                     <img src="img/avatar01.jpg" alt="Nom 3" />
                 </div>
-                <div class="col-4">
+                <div class="col-2 col-xs-3">
                         <div ip="Nom"> Nom : <script> document.write(monPote3Nom) </script> </div> 
                         <div ip="Prenom"> Prénom : <script> document.write(monPote3Prenom) </script>  </div> 
                         <div ip="Tel"> Tél : <script> document.write(monPote3Tel) </script> </div> 
                 </div>
-                <div class="col-4 col-sm-3">
+                <div class="col-2 col-xs-3">
+                    <div ip="maPosLat">lat : <script> document.write(infoposPote3Lat) </script> </div> 
+                    <div ip="maPostLon">lon : <script> document.write(infoposPote3Lon) </script>  </div> 
+                </div>
+        
+                <div class="col-2 col-xs-3">
                         <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote3Nom)">Rallier</button>
+                        <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
                     </div>
       
             </div>
 
             <div class="row show-grid">
  
-                    <div class="col-4 col-sm-3">
+                    <div class="col-2 col-xs-3">
                         <img src="img/avatar02.jpg" alt="Nom 4" />
                     </div>
-                    <div class="col-4">
+                    <div class="col-2 col-xs-3">
                             <div ip="Nom"> Nom : <script> document.write(monPote4Nom) </script> </div> 
                             <div ip="Prenom"> Prénom : <script> document.write(monPote4Prenom) </script>  </div> 
                             <div ip="Tel"> Tél : <script> document.write(monPote4Tel) </script> </div> 
                     </div>
-                    <div class="col-4 col-sm-3">
+                    <div class="col-2 col-xs-3">
+                        <div ip="maPosLat">lat : <script> document.write(infoposPote4Lat) </script> </div> 
+                        <div ip="maPostLon">lon : <script> document.write(infoposPote4Lon) </script>  </div> 
+                    </div>
+            
+                    <div class="col-2 col-xs-3">
                             <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote4Nom)">Rallier</button>
+                            <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
                     </div>
             
                 </div>
 
     <div class="row show-grid">
-        <div class="col-12 col-sm-8"> MAP
+        <div class="col-22 col-xs-12"> MAP
             <div id="mapid" style="width: 600px; height: 400px;"></div>
             <script>
 
