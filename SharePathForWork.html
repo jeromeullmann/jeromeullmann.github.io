@@ -11,323 +11,178 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">-->
 
-    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/cyborg/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4DAPMwiyOJv/C/LvTiUsW5ueiD7EsaAhwUKO0Llp+fWzT40XrmAbayhVP00bAJVa" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-ywjdn7N8uoxzIfGl7jlEBlqw2BNicOSzZDgo7A2ffvbM24Ct9plRp7KwtaIqZ33j" crossorigin="anonymous">
 
     <!-- pk.eyJ1IjoidWxsbWFubiIsImEiOiJjam80aXl2ejMwMDQ2M3ZtYmphZ3Yya2F0In0.Zt2Wm4lsbwdL_KhDzEWKuQ -->
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-        crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
     <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
-        crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
-
-    <style type="text/css">
-        #mapid {
-            height: 180px;
-        }
-    </style>
+    <!-- carrousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
     <title>Partager Mon Trajet</title>
 
-    <script>
-
-        // Données
-
-        var monNom ="Soudant";
-        var monPrenom ="Raphael";
-        var monTel ="06.06.06.06.06"
-
-        var monPote1Nom ="Ullmann";
-        var monPote1Prenom ="Yanis";
-        var monPote1Tel ="06.06.06.06.07";
-        var infoposPote1Lat = "47.301906";
-        var infoposPote1Lon = "1.555031";
-
-        var monPote2Nom ="Claverie";
-        var monPote2Prenom ="Elouan";
-        var monPote2Tel ="06.06.06.06.08"
-        var infoposPote2Lat = "47.301906";
-        var infoposPote2Lon = "1.555031";
-     
-        var monPote3Nom ="Perroni";
-        var monPote3Prenom ="Camille";
-        var monPote3Tel ="06.06.06.06.09";
-        var infoposPote3Lat = "47.301906";
-        var infoposPote3Lon = "1.555031";
-
-        var monPote4Nom ="AlainGuillaume";
-        var monPote4Prenom ="Thomas";
-        var monPote4Tel ="06.06.06.06.10";
-        var infoposPote4Lat = "47.301906";
-        var infoposPote4Lon = "1.555031";
-
-        var monPote5Nom ="Dupin";
-        var monPote5Prenom ="Martin";
-        var monPote5Tel ="06.06.06.06.11";
-        var infoposPote5Lat = "47.301906";
-        var infoposPote5Lon = "1.555031";
-
-        // Domicile
-        var infoposDomicileNom ="Domicile"
-        var infoposDomicileLat = "47.301906";
-        var infoposDomicileLon = "-1.555031";
-
-
-        // Travail
-        var infoposTravailNom ="Travail"
-        var infoposTravailLat = "47.224553";
-        var infoposTravailLon = "-1.574735";
-
-        // Position courrante
-        var infoposCourranteNom ="I am here !"
-        var infoposCourranteLat = "47.301906";
-        var infoposCourranteLon = "1.555031";
-
-         // Position ralliement
-        var infoposRalliementInfo ="Join here !"
-        var infoposRalliementLat = "";
-        var infoposRalliementLon = "";       
-
-        // id Map
-        var id ="";
-
-        function afficherPosCallback(position) {
-            var infopos = "Position déterminée :\n";
-            var infoposCourranteLat = position.coords.latitude;
-            var infoposCourranteLon = position.coords.longitude;
-
-         
-         //   infopos += "Latitude : " + position.coords.latitude + "\n";
-         //   infopos += " / Longitude: " + position.coords.longitude + "\n";
-         //   document.getElementById("infoposition").innerHTML = infopos;
-
-        };
-
-        function errorCallback(error) {
-            switch (error.code) {
-                case error.PERMISSION_DENIED:
-                    alert("L'utilisateur n'a pas autorisé l'accès à sa position");
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    alert("L'emplacement de l'utilisateur n'a pas pu être déterminé");
-                    break;
-                case error.TIMEOUT:
-                    alert("Le service n'a pas répondu à temps");
-                    break;
-            }
-        };
-
-        function activerGeolocalisation(){
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(afficherPosCallback, errorCallback, {
-                            enableHighAccuracy: true,
-                            timeout: 5000,
-                            maximumAge: 60000
-                        });
-            } else {
-                        alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
-                    }
-        }
-
-        function afficherPosition() {
-                        navigator.geolocation.getCurrentPosition(afficherPosCallback, errorCallback, {
-                            enableHighAccuracy: true,
-                            timeout: 5000,
-                            maximumAge: 60000
-                        });
-        }
-
-        function joindrePosition(nomUtilisateur) {
-                        navigator.geolocation.getCurrentPosition(joindrePosCallback, errorCallback, {
-                            enableHighAccuracy: true,
-                            timeout: 5000,
-                            maximumAge: 60000
-                        });
-                        if (infoposRalliementLat,infoposRalliementLon) {
-                            afficherMarker(infoposRalliementLat,infoposRalliementLon,nomUtilisateur);
-                        }
-                      
-        }
-
-        function joindrePosCallback(position) {
-            infoposRalliementLat = position.coords.latitude;
-            infoposRalliementLon = position.coords.longitude;
-        };
-
-        function watchPosition(){
-            id = navigator.geolocation.watchPosition(afficherPosCallback, errorCallback, {
-                            enableHighAccuracy: true,
-                            timeout: 5000,
-                            maximumAge: 60000
-                        });
-            
-        }
-
-        function clearRoute(){
-
-            navigator.geolocation.clearWatch(id);
-                       
-        }
-
-        function afficherMarker(lat, lon, Nom) {
-            L.marker([lat, lon]).addTo(mymap)
-            .bindPopup(Nom)
-            .openPopup();
-            mymap.setView([lat, lon], 13);
-        }
-
-</script>
+    <!-- données de bouchonnage -->
+    <script type="text/javascript" src="js/data.js"></script>
+    <!-- actions -->
+    <script type="text/javascript" src="js/action.js"></script>
 
 </head>
 
-<body>
+<body cz-shortcut-listen="true">
 
-    <h1>Partager Mon Trajet</h1>
     <script>
-         activerGeolocalisation();
+        activerGeolocalisation();
     </script>
 
-    <div class="row show-grid">
-        <div class="col-2 col-xs-3">
-            <img src="img/avatar01.jpg" alt="" />
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+        <div class="row">
+            <a class="navbar-brand" href="#">Partager Mon Trajet</a>
         </div>
-        <div class="col-4 col-xs-3">
-                <div ip="Nom"> Nom : <script> document.write(monNom) </script> </div> 
-                <div ip="Prenom"> Prénom : <script> document.write(monPrenom) </script>  </div> 
-                <div ip="Tel"> Tél : <script> document.write(monTel) </script> </div> 
-        </div>
-        <div class="col-4 col-xs-3">
-                <div ip="maPosLat">lat : <script> document.write(infoposCourranteLat) </script> </div> 
-                <div ip="maPostLon">lon : <script> document.write(infoposCourranteLon) </script>  </div> 
- 
-        </div>
-        <div class="col-4 col-xs-3">
-                <button type="button" class="btn btn-primary" onclick="javascript:watchPosition()">Activation</button>
-                <button type="button" class="btn btn-primary" onclick="javascript:clearRoute()">Clear</button>
-         </div>
-    </div>
+    </nav>
 
-    <div class="row show-grid">
-        <div class="col-2 col-xs-3">
-            <img src="img/avatar01.jpg" alt="Nom 1" />
-        </div>
-        <div class="col-2 col-xs-3">
-                <div ip="Nom"> Nom : <script> document.write(monPote1Nom) </script> </div> 
-                <div ip="Prenom"> Prénom : <script> document.write(monPote1Prenom) </script>  </div> 
-                <div ip="Tel"> Tél : <script> document.write(monPote1Tel) </script> </div> 
-        </div>
-        <div class="col-2 col-xs-3">
-            <div ip="maPosLat">lat : <script> document.write(infoposPote1Lat) </script> </div> 
-            <div ip="maPostLon">lon : <script> document.write(infoposPote1Lon) </script>  </div> 
-        </div>
-        <div class="col-2 col-xs-3">
-                <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote1Nom)">Rallier</button>
-                <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
-        </div>
-    </div>
-    <div class="row show-grid">
-            <div class="col-2 col-xs-3">
-                <img src="img/avatar02.jpg" alt="Nom 2" />
-             </div>
-
-             <div class="col-2 col-xs-3">
-                    <div ip="Nom"> Nom : <script> document.write(monPote2Nom) </script> </div> 
-                    <div ip="Prenom"> Prénom : <script> document.write(monPote2Prenom) </script>  </div> 
-                    <div ip="Tel"> Tél : <script> document.write(monPote2Tel) </script> </div> 
-            </div>
-            <div class="col-2 col-xs-3">
-                <div ip="maPosLat">lat : <script> document.write(infoposPote2Lat) </script> </div> 
-                <div ip="maPostLon">lon : <script> document.write(infoposPote2Lon) </script>  </div> 
-            </div>
-    
-            <div class="col-2 col-xs-3">
-                    <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote2Nom)">Rallier</button>
-                    <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
-                </div>
-         
-        </div>
-
-        <div class="row show-grid">
-                <div class="col-2 col-xs-3">
-                    <img src="img/avatar01.jpg" alt="Nom 3" />
-                </div>
-                <div class="col-2 col-xs-3">
-                        <div ip="Nom"> Nom : <script> document.write(monPote3Nom) </script> </div> 
-                        <div ip="Prenom"> Prénom : <script> document.write(monPote3Prenom) </script>  </div> 
-                        <div ip="Tel"> Tél : <script> document.write(monPote3Tel) </script> </div> 
-                </div>
-                <div class="col-2 col-xs-3">
-                    <div ip="maPosLat">lat : <script> document.write(infoposPote3Lat) </script> </div> 
-                    <div ip="maPostLon">lon : <script> document.write(infoposPote3Lon) </script>  </div> 
-                </div>
-        
-                <div class="col-2 col-xs-3">
-                        <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote3Nom)">Rallier</button>
-                        <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
+    <div class="row mx-0">
+        <div class="col-12 col-lg-6">
+            <div class="carrousel-slick mx-4">
+                <div class="carrousel-slide">
+                    <div class="card mx-1">
+                        <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title"><script> document.write(personnes[0].prenom) </script> <script> document.write(personnes[0].nom) </script></h4>
+                            <p class="card-text tel">Tél :
+                                <script>
+                                    document.write(personnes[0].tel)
+                                </script>
+                            </p>
+                            <p class="card-text maPosLat">
+                                <span class="maPosLat">Lat : <script> document.write(personnes[0].lat) </script></span>
+                                <span class="maPostLon">Lon : <script> document.write(personnes[0].lon) </script></span>
+                            </p>
+                            <button type="button" class="btn btn-primary" onclick="javascript:watchPosition()">Activation</button>
+                            <button type="button" class="btn btn-primary" onclick="javascript:clearRoute()">Clear</button>
+                        </div>
                     </div>
-      
-            </div>
-
-            <div class="row show-grid">
- 
-                    <div class="col-2 col-xs-3">
-                        <img src="img/avatar02.jpg" alt="Nom 4" />
-                    </div>
-                    <div class="col-2 col-xs-3">
-                            <div ip="Nom"> Nom : <script> document.write(monPote4Nom) </script> </div> 
-                            <div ip="Prenom"> Prénom : <script> document.write(monPote4Prenom) </script>  </div> 
-                            <div ip="Tel"> Tél : <script> document.write(monPote4Tel) </script> </div> 
-                    </div>
-                    <div class="col-2 col-xs-3">
-                        <div ip="maPosLat">lat : <script> document.write(infoposPote4Lat) </script> </div> 
-                        <div ip="maPostLon">lon : <script> document.write(infoposPote4Lon) </script>  </div> 
-                    </div>
-            
-                    <div class="col-2 col-xs-3">
-                            <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(monPote4Nom)">Rallier</button>
+                </div>
+                <div class="carrousel-slide">
+                    <div class="card mx-1">
+                        <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title"><script> document.write(personnes[1].prenom) </script> <script> document.write(personnes[1].nom) </script></h4>
+                            <p class="card-text tel">Tél :
+                                <script>
+                                    document.write(personnes[1].tel)
+                                </script>
+                            </p>
+                            <p class="card-text maPosLat">
+                                <span class="maPosLat">Lat : <script> document.write(personnes[1].lat) </script></span>
+                                <span class="maPostLon">Lon : <script> document.write(personnes[1].lon) </script></span>
+                            </p>
+                            <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(personnes[1].nom)">Rallier</button>
                             <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
+                        </div>
                     </div>
-            
                 </div>
+                <div class="carrousel-slide">
+                    <div class="card mx-1">
+                        <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title"><script> document.write(personnes[2].prenom) </script> <script> document.write(personnes[2].nom) </script></h4>
+                            <p class="card-text tel">Tél :
+                                <script>
+                                    document.write(personnes[2].tel)
+                                </script>
+                            </p>
+                            <p class="card-text maPosLat">
+                                <span class="maPosLat">Lat : <script> document.write(personnes[2].lat) </script></span>
+                                <span class="maPostLon">Lon : <script> document.write(personnes[2].lon) </script></span>
+                            </p>
+                            <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(personnes[2].nom)">Rallier</button>
+                            <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carrousel-slide">
+                    <div class="card mx-1">
+                        <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title"><script> document.write(personnes[3].prenom) </script> <script> document.write(personnes[3].nom) </script></h4>
+                            <p class="card-text tel">Tél :
+                                <script>
+                                    document.write(personnes[3].tel)
+                                </script>
+                            </p>
+                            <p class="card-text maPosLat">
+                                <span class="maPosLat">Lat : <script> document.write(personnes[3].lat) </script></span>
+                                <span class="maPostLon">Lon : <script> document.write(personnes[3].lon) </script></span>
+                            </p>
+                            <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(personnes[3].nom)">Rallier</button>
+                            <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carrousel-slide">
+                    <div class="card mx-1">
+                        <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title"><script> document.write(personnes[4].prenom) </script> <script> document.write(personnes[4].nom) </script></h4>
+                            <p class="card-text tel">Tél :
+                                <script>
+                                    document.write(personnes[4].tel)
+                                </script>
+                            </p>
+                            <p class="card-text maPosLat">
+                                <span class="maPosLat">Lat : <script> document.write(personnes[4].lat) </script></span>
+                                <span class="maPostLon">Lon : <script> document.write(personnes[4].lon) </script></span>
+                            </p>
+                            <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(personnes[4].nom)">Rallier</button>
+                            <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mt-3 mt-lg-0">
+            <div class="card pb-3">
+                <div class="card-body">
+                    <h4 class="card-title text-center mb-3">Carte</h4>
+                    <div id="mapid" class="m-auto" style="width: 600px; height: 400px;"></div>
+                    <script>
+                        if (infoposDomicileLat, infoposDomicileLon) {
+                            var mymap = L.map('mapid').setView([infoposDomicileLat, infoposDomicileLon], 13)
+                        }
+                        afficherMarker(infoposDomicileLat, infoposDomicileLon, infoposDomicileNom);
+                        afficherMarker(infoposTravailLat, infoposTravailLon, infoposTravailNom);
+                        // mymap.locate({setView: true, maxZoom: 16});
 
-    <div class="row show-grid">
-        <div class="col-22 col-xs-12"> MAP
-            <div id="mapid" style="width: 600px; height: 400px;"></div>
-            <script>
+                        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                            maxZoom: 18,
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            id: 'mapbox.streets'
 
-                 if (infoposDomicileLat, infoposDomicileLon) {
-                    var mymap = L.map('mapid').setView([infoposDomicileLat, infoposDomicileLon], 13)
-                 }
-                 afficherMarker(infoposDomicileLat,infoposDomicileLon,infoposDomicileNom);
-                 afficherMarker(infoposTravailLat,infoposTravailLon,infoposTravailNom);
-                // mymap.locate({setView: true, maxZoom: 16});
-
-                L.tileLayer(
-                    'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidWxsbWFubiIsImEiOiJjam80aXl2ejMwMDQ2M3ZtYmphZ3Yya2F0In0.Zt2Wm4lsbwdL_KhDzEWKuQ', {
-                        maxZoom: 18,
-                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                        id: 'mapbox.streets'
-                    }).addTo(mymap);
-
-            </script>
+                        }).addTo(mymap);
+                    </script>
+                </div>
+            </div>
         </div>
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- carrousel -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- gestion de la mise en page (carrousel, ...) -->
+    <script type="text/javascript" src="js/display-front.js"></script>
 
 </body>
 
