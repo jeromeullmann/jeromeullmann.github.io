@@ -37,11 +37,7 @@
 
 <body cz-shortcut-listen="true">
 
-    <script>
-        activerGeolocalisation();
-    </script>
-
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
         <div class="row">
             <a class="navbar-brand" href="#">Partager Mon Trajet</a>
         </div>
@@ -52,8 +48,14 @@
             <div class="carrousel-slick mx-4">
                 <div class="carrousel-slide">
                     <div class="card mx-1">
-                        <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
+                        <script> document.write('<img class="card-img-top" src ="'+ personnes[0].avatar + '" alt="Card image">') </script>
                         <div class="card-body">
+
+                            <!-- <script> console.log("couleur : " + personnes[0].couleur)</script> -->
+                            <!-- <div class="w-100" style="height: 20px;background-color: red;"> </div> -->
+                            
+                            <script> document.write('<div class="w-100" style="height: 20px;background-color: '+ personnes[0].couleur + '";"> </div>' ) </script>
+                            
                             <h4 class="card-title"><script> document.write(personnes[0].prenom) </script> <script> document.write(personnes[0].nom) </script></h4>
                             <p class="card-text tel">Tél :
                                 <script>
@@ -62,7 +64,7 @@
                             </p>
                             <p class="card-text maPosLat">
                                 <span class="maPosLat">Lat : <script> document.write(personnes[0].lat) </script></span>
-                                <span class="maPostLon">Lon : <script> document.write(personnes[0].lon) </script></span>
+                                <span class="maPostLon">Long : <script> document.write(personnes[0].long) </script></span>
                             </p>
                             <button type="button" class="btn btn-primary" onclick="javascript:watchPosition()">Activation</button>
                             <button type="button" class="btn btn-primary" onclick="javascript:clearRoute()">Clear</button>
@@ -73,6 +75,7 @@
                     <div class="card mx-1">
                         <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
                         <div class="card-body">
+                            <script> document.write('<div class="w-100" style="height: 20px;background-color: '+ personnes[1].couleur + '";"> </div>' ) </script>
                             <h4 class="card-title"><script> document.write(personnes[1].prenom) </script> <script> document.write(personnes[1].nom) </script></h4>
                             <p class="card-text tel">Tél :
                                 <script>
@@ -81,7 +84,7 @@
                             </p>
                             <p class="card-text maPosLat">
                                 <span class="maPosLat">Lat : <script> document.write(personnes[1].lat) </script></span>
-                                <span class="maPostLon">Lon : <script> document.write(personnes[1].lon) </script></span>
+                                <span class="maPostLong">Long : <script> document.write(personnes[1].long) </script></span>
                             </p>
                             <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(personnes[1].nom)">Rallier</button>
                             <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
@@ -92,6 +95,7 @@
                     <div class="card mx-1">
                         <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
                         <div class="card-body">
+                            <script> document.write('<div class="w-100" style="height: 20px;background-color: '+ personnes[2].couleur + '";"> </div>' ) </script>
                             <h4 class="card-title"><script> document.write(personnes[2].prenom) </script> <script> document.write(personnes[2].nom) </script></h4>
                             <p class="card-text tel">Tél :
                                 <script>
@@ -100,7 +104,7 @@
                             </p>
                             <p class="card-text maPosLat">
                                 <span class="maPosLat">Lat : <script> document.write(personnes[2].lat) </script></span>
-                                <span class="maPostLon">Lon : <script> document.write(personnes[2].lon) </script></span>
+                                <span class="maPostLong">Long : <script> document.write(personnes[2].long) </script></span>
                             </p>
                             <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(personnes[2].nom)">Rallier</button>
                             <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
@@ -111,6 +115,8 @@
                     <div class="card mx-1">
                         <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
                         <div class="card-body">
+                            <script> document.write('<div class="w-100" style="height: 20px;background-color: '+ personnes[3].couleur + '";"> </div>' ) </script>
+
                             <h4 class="card-title"><script> document.write(personnes[3].prenom) </script> <script> document.write(personnes[3].nom) </script></h4>
                             <p class="card-text tel">Tél :
                                 <script>
@@ -119,7 +125,7 @@
                             </p>
                             <p class="card-text maPosLat">
                                 <span class="maPosLat">Lat : <script> document.write(personnes[3].lat) </script></span>
-                                <span class="maPostLon">Lon : <script> document.write(personnes[3].lon) </script></span>
+                                <span class="maPostLong">Long : <script> document.write(personnes[3].long) </script></span>
                             </p>
                             <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(personnes[3].nom)">Rallier</button>
                             <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
@@ -130,6 +136,7 @@
                     <div class="card mx-1">
                         <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
                         <div class="card-body">
+                            <script> document.write('<div class="w-100" style="height: 20px;background-color: '+ personnes[4].couleur + '";"> </div>' ) </script>
                             <h4 class="card-title"><script> document.write(personnes[4].prenom) </script> <script> document.write(personnes[4].nom) </script></h4>
                             <p class="card-text tel">Tél :
                                 <script>
@@ -138,7 +145,7 @@
                             </p>
                             <p class="card-text maPosLat">
                                 <span class="maPosLat">Lat : <script> document.write(personnes[4].lat) </script></span>
-                                <span class="maPostLon">Lon : <script> document.write(personnes[4].lon) </script></span>
+                                <span class="maPostLong">Long : <script> document.write(personnes[4].long) </script></span>
                             </p>
                             <button type="button" class="btn btn-primary" onclick="javascript:joindrePosition(personnes[4].nom)">Rallier</button>
                             <button type="button" class="btn btn-primary" onclick="javascript:informerProximite()">A proxymitée</button>
@@ -153,25 +160,28 @@
                     <h4 class="card-title text-center mb-3">Carte</h4>
                     <div id="mapid" class="m-auto" style="width: 600px; height: 400px;"></div>
                     <script>
-                        if (infoposDomicileLat, infoposDomicileLon) {
-                            var mymap = L.map('mapid').setView([infoposDomicileLat, infoposDomicileLon], 13)
+                        if (infoposDomicileLat, infoposDomicileLong) {
+                            var map = L.map('mapid').setView([infoposDomicileLat, infoposDomicileLong], 16)
                         }
-                        afficherMarker(infoposDomicileLat, infoposDomicileLon, infoposDomicileNom);
-                        afficherMarker(infoposTravailLat, infoposTravailLon, infoposTravailNom);
-                        // mymap.locate({setView: true, maxZoom: 16});
+                        afficherMarker(infoposDomicileLat, infoposDomicileLong, infoposDomicileNom);
+                        afficherMarker(infoposTravailLat, infoposTravailLong, infoposTravailNom);
+                        
+                        // map.locate({setView: true, maxZoom: 16});
 
                         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                            maxZoom: 18,
+                            maxZoom: 16,
                             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
                                 '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                                 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                             id: 'mapbox.streets'
 
-                        }).addTo(mymap);
+                        }).addTo(map);
                     </script>
                 </div>
             </div>
         </div>
+    <iframe src='https://www.windy.com/?47.152,-0.670,7,m:eXkaf47' style="width: 600px; height: 400px;"></iframe>
+
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
