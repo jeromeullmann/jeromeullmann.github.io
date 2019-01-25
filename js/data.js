@@ -12,8 +12,8 @@ var personnes = {
         lat:"1.555031"
     },
     1:{
-        nom:"Claverie",
-        prenom:"Elouan",
+        nom:"Soudant",
+        prenom:"Raphael",
         avatar:"img/avatar01.jpg",
         role:"beneficiaire",
         couleur:"orange",

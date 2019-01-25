@@ -11,6 +11,11 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">-->
 
+
+    <!-- EXO : S'amuser a changer l'affichage bootstrap -->   
+  
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.2.1/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-kW2H6mf/72/MKlmwB//Zcwg0ckiegojPx/fio14/rpoYw2LMhULTn5YhS1QyrQfx" crossorigin="anonymous"> -->
+
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-ywjdn7N8uoxzIfGl7jlEBlqw2BNicOSzZDgo7A2ffvbM24Ct9plRp7KwtaIqZ33j" crossorigin="anonymous">
 
     <!-- pk.eyJ1IjoidWxsbWFubiIsImEiOiJjam80aXl2ejMwMDQ2M3ZtYmphZ3Yya2F0In0.Zt2Wm4lsbwdL_KhDzEWKuQ -->
@@ -28,6 +33,8 @@
 
     <title>Partager Mon Trajet</title>
 
+    <!-- EXO : il s'agit du titre qui apparait dans l'onglet -->   
+
     <!-- données de bouchonnage -->
     <script type="text/javascript" src="js/data.js"></script>
     <!-- actions -->
@@ -38,9 +45,23 @@
 <body cz-shortcut-listen="true">
 
    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-        <div class="row">
-            <a class="navbar-brand" href="#">Partager Mon Trajet</a>
+       
+        <a class="navbar-brand" href="#">Partager Mon Trajet</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#contact">Contact <span class="sr-only">(current)</span></a>
+                  </li>
+                </ul>
         </div>
+
+   
+
     </nav>
 
     <div class="row mx-0">
@@ -55,8 +76,9 @@
                             <!-- <div class="w-100" style="height: 20px;background-color: red;"> </div> -->
                             
                             <script> document.write('<div class="w-100" style="height: 20px;background-color: '+ personnes[0].couleur + '";"> </div>' ) </script>
-                            
-                            <h4 class="card-title"><script> document.write(personnes[0].prenom) </script> <script> document.write(personnes[0].nom) </script></h4>
+                            <script> document.write('<div class="w-100" style="height: 20px;background-color: '+ personnes[0].couleur + '";"> </div>' ) </script>
+
+                            <p class="card-title"><script> document.write(personnes[0].prenom) </script> <script> document.write(personnes[0].nom) </script></p>
                             <p class="card-text tel">Tél :
                                 <script>
                                     document.write(personnes[0].tel)
@@ -76,7 +98,7 @@
                         <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
                         <div class="card-body">
                             <script> document.write('<div class="w-100" style="height: 20px;background-color: '+ personnes[1].couleur + '";"> </div>' ) </script>
-                            <h4 class="card-title"><script> document.write(personnes[1].prenom) </script> <script> document.write(personnes[1].nom) </script></h4>
+                            <p class="card-title"><script> document.write(personnes[1].prenom) </script> <script> document.write(personnes[1].nom) </script></p>
                             <p class="card-text tel">Tél :
                                 <script>
                                     document.write(personnes[1].tel)
@@ -96,7 +118,7 @@
                         <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
                         <div class="card-body">
                             <script> document.write('<div class="w-100" style="height: 20px;background-color: '+ personnes[2].couleur + '";"> </div>' ) </script>
-                            <h4 class="card-title"><script> document.write(personnes[2].prenom) </script> <script> document.write(personnes[2].nom) </script></h4>
+                            <p class="card-title"><script> document.write(personnes[2].prenom) </script> <script> document.write(personnes[2].nom) </script></p>
                             <p class="card-text tel">Tél :
                                 <script>
                                     document.write(personnes[2].tel)
@@ -117,7 +139,7 @@
                         <div class="card-body">
                             <script> document.write('<div class="w-100" style="height: 20px;background-color: '+ personnes[3].couleur + '";"> </div>' ) </script>
 
-                            <h4 class="card-title"><script> document.write(personnes[3].prenom) </script> <script> document.write(personnes[3].nom) </script></h4>
+                            <p class="card-title"><script> document.write(personnes[3].prenom) </script> <script> document.write(personnes[3].nom) </script></p>
                             <p class="card-text tel">Tél :
                                 <script>
                                     document.write(personnes[3].tel)
@@ -137,7 +159,7 @@
                         <img class="card-img-top" src="img/avatar01.jpg" alt="Card image">
                         <div class="card-body">
                             <script> document.write('<div class="w-100" style="height: 20px;background-color: '+ personnes[4].couleur + '";"> </div>' ) </script>
-                            <h4 class="card-title"><script> document.write(personnes[4].prenom) </script> <script> document.write(personnes[4].nom) </script></h4>
+                            <p class="card-title"><script> document.write(personnes[4].prenom) </script> <script> document.write(personnes[4].nom) </script></p>
                             <p class="card-text tel">Tél :
                                 <script>
                                     document.write(personnes[4].tel)
@@ -157,8 +179,8 @@
         <div class="col-12 col-lg-6 mt-3 mt-lg-0">
             <div class="card pb-3">
                 <div class="card-body">
-                    <h4 class="card-title text-center mb-3">Carte</h4>
-                    <div id="mapid" class="m-auto" style="width: 600px; height: 400px;"></div>
+                    <p class="card-title text-center mb-3">Carte</p>
+                    <div id="mapid" class="m-auto" ></div>
                     <script>
                         if (infoposDomicileLat, infoposDomicileLong) {
                             var map = L.map('mapid').setView([infoposDomicileLat, infoposDomicileLong], 16)
@@ -180,7 +202,15 @@
                 </div>
             </div>
         </div>
-    <iframe src='https://www.windy.com/?47.152,-0.670,7,m:eXkaf47' style="width: 600px; height: 400px;"></iframe>
+
+        <div class="col-12 my-3">
+            <div class="card">
+                <div class="card-body">
+                    <p id="contact" class="card-title text-center mb-3">Copyright @ 2019. Tous droits réservés a Raphael et Yanis</p>
+                
+                </div>
+            </div>
+        </div>
 
     </div>
     <!-- Optional JavaScript -->

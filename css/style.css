@@ -2,6 +2,7 @@ body {
     padding-top:120px;
 }
 #mapid {
-    height: 180px;
+    width: 300px; 
+    height: 300px
 }
 .carrousel-slick
